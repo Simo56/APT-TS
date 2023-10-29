@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APT-TS</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .tool-selection {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tool-container {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+
+        .tool-container label {
+            margin-right: 10px;
+        }
+
+        .tool-logo {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Automated Penetration Testing</h1>
+    </div>
+    <h2 style="text-align: center;">Select Your Tools</h2>
+    <div class="tool-selection">
+        <form action="/run-scan" method="POST">
+            <div class="tool-container">
+                <select id="scanning-tool" name="scanningTool" required>
+                    <option value="" disabled selected>Scanning Tool</option>
+                    <option value="nmap">Nmap</option>
+                    <option value="openvas">greenbone OpenVAS</option>
+                    <!-- Add more scanning tools as needed -->
+                </select>
+                <label for="scanning-tool">Scanning Tool:</label>
+                <img class="tool-logo" src="/images/defaultscanoption.png" alt="Tool Logo" id="scanning-tool-logo">
+            </div>
+
+            <div class="tool-container">
+                <select id="exploitation-tool" name="exploitationTool" required>
+                    <option value="" disabled selected>Exploitation Tool</option>
+                    <option value="metasploit">Metasploit</option>
+                    <!-- Add more exploitation tools as needed -->
+                </select>
+                <label for="exploitation-tool">Exploitation Tool:</label>
+                <img class="tool-logo" src="/images/defaultexploitoption.png" alt="Tool Logo" id="exploitation-tool-logo">
+            </div>
+
+            <!-- Add more tool selections and logos as needed -->
+
+            <input type="submit" value="Run Test">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to display logos based on tool selection
+        const scanningToolSelect = document.getElementById("scanning-tool");
+        const scanningToolLogo = document.getElementById("scanning-tool-logo");
+
+        const exploitationToolSelect = document.getElementById("exploitation-tool");
+        const exploitationToolLogo = document.getElementById("exploitation-tool-logo");
+
+        scanningToolSelect.addEventListener("change", function () {
+            const selectedTool = scanningToolSelect.value;
+            const toolLogoSrc = `/images/${selectedTool}.png`; // Modify the path as needed
+            scanningToolLogo.src = toolLogoSrc;
+        });
+
+        exploitationToolSelect.addEventListener("change", function () {
+            const selectedTool = exploitationToolSelect.value;
+            const toolLogoSrc = `/images/${selectedTool}.png`; // Modify the path as needed
+            exploitationToolLogo.src = toolLogoSrc;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #dddddd; /* Light gray background */
+}
+
+.header {
+    background-color: #022150;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    color: #000000;
+    text-decoration: none;
+}
+
+.tool-logo {
+    width: 75px; /* Set your desired width */
+    height: 75px; /* Allow the height to adjust proportionally */
+}
+
+#dynamicQrCodeContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form label, form select, form option {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    width: 150px; /* Set a fixed width for labels if needed */
+}
+
+form input, form button {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    width: 200px; /* Set a fixed width for inputs and buttons if needed */
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 10px;
+    }
+    .tool-logo {
+        width: 50px; /* Set a smaller width for mobile devices */
+    }
+}

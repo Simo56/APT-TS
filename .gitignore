@@ -1,0 +1,36 @@
+# Ignore node_modules directory
+node_modules/
+
+# Compiled JavaScript files
+build/
+
+# Log files
+*.log
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts and cache directories
+dist/
+.cache/
+
+# Ignore environment-specific files
+.env
+
+# Ignore configuration files that may contain sensitive data
+config/*.json
+config/*.js
+config/*.ts
