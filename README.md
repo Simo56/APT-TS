@@ -3,7 +3,7 @@
   <br>
   <img width="512" alt="APT-TS Logo" src="https://github.com/Simo56/APT-TS/assets/20564263/34d791e3-ab23-4fdd-a4e1-9751de34ba2d">
   <br>
-  Ladon Cloud Agent
+  APT-TS
   <br>
 </h1>
 
