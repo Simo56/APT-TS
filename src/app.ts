@@ -1,6 +1,10 @@
 import express = require("express");
 import { Express } from "express";
+
 import homeRouter from "./routes/homeRoute"; // Import your specific route file
+import runScanRoute from "./routes/runScanRoute"; // Import your specific route file
+import gatherOSINTRoute from "./routes/gatherOSINTRoute"; // Import your specific route file
+
 import path = require("path");
 
 class App {
@@ -28,7 +32,9 @@ class App {
         this.server.use("/", homeRouter);
 
         // Add other routes by importing their respective route files
-        // this.server.use("/otherPath", otherRouter);
+        this.server.use("/", runScanRoute);
+        this.server.use("/", gatherOSINTRoute);
+
     }
 }
 

@@ -6,11 +6,26 @@ body {
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
     background-color: #022150;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0; /* Remove the margin to center the text */
+}
+
+.osint-button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .content {
@@ -58,6 +73,38 @@ form input, form button {
     margin: 10px auto;
     text-align: center;
     width: 200px; /* Set a fixed width for inputs and buttons if needed */
+}
+
+.tool-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tool-container {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.tool-container label {
+    margin-right: 10px;
+}
+
+.tool-logo {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.domain-section {
+    text-align: center;
+}
+
+.domain-section label,
+.domain-section input {
+    display: block;
+    margin: 10px auto;
 }
 
 @media screen and (max-width: 480px) {

@@ -4,37 +4,20 @@
     <title>APT-TS</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        .tool-selection {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .tool-container {
-            display: flex;
-            align-items: center;
-            margin: 5px;
-        }
-
-        .tool-container label {
-            margin-right: 10px;
-        }
-
-        .tool-logo {
-            max-width: 100px;
-            max-height: 100px;
-        }
-    </style>
 </head>
 <body>
     <div class="header">
         <h1>Automated Penetration Testing</h1>
+        <button class="osint-button" onclick="window.location.href = '/osint';">Gather OSINT</button>
     </div>
     <h2 style="text-align: center;">Select Your Tools</h2>
     <div class="tool-selection">
         <form action="/run-scan" method="POST">
+            <div class="domain-section">
+                <label for="target">Enter IP Address or Domain:</label>
+                <input type="text" id="target" name="target" required>
+            </div>
+
             <div class="tool-container">
                 <select id="scanning-tool" name="scanningTool" required>
                     <option value="" disabled selected>Scanning Tool</option>
