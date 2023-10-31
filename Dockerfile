@@ -1,23 +1,30 @@
-# Use Node.js 18 as base
-FROM node:18 as base
+FROM nikolaik/python-nodejs:python3.9-nodejs18
 
-# Set the working directory in the container
+# Install Git to clone theHarvester repository
+RUN apt-get install -y git
+
+### INSTALL THEHARVESTER ###
+WORKDIR /usr/src/app/theHarvester
+RUN git clone https://github.com/laramies/theHarvester .
+
+# Install Python dependencies for theHarvester
+RUN pip install -r requirements/base.txt
+### END INSTALL THEHARVESTER ###
+
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Copy the Node.js application files
 COPY package*.json ./
 RUN npm install
-
-# Bundle app source
 COPY . .
+RUN npm run start
 
-# Build the TypeScript code
-RUN npm run build
+### ADD THEHARVESTER IN PATH ###
+ENV PATH="${PATH}:/usr/src/app/theHarvester"
+### END THEHARVESTER IN PATH ###
 
-# Expose the port your application listens on
+# Expose the port for the Node.js application
 EXPOSE 8080
 
-# Start the application when the container starts
-CMD [ "node", "build/src/index.js" ]
+# Start the Node.js application and theHarvester
+CMD [ "node", "/usr/src/app/build/src/index.js" ]
