@@ -51,11 +51,6 @@ body {
     height: 75px; /* Allow the height to adjust proportionally */
 }
 
-#dynamicQrCodeContainer {
-    text-align: center;
-    margin-top: 20px;
-}
-
 form {
     text-align: center;
     margin-top: 20px;
@@ -107,7 +102,7 @@ form input, form button {
     margin: 10px auto;
 }
 
-.result-container {
+.result-container, .result-container-scan, .result-container-exploit{
     height: 200px; /* Set the desired height for the scrollable area */
     width: 80%; /* Set the width to 80% and center the container */
     margin: 0 auto; /* Center the container horizontally */
@@ -117,13 +112,19 @@ form input, form button {
     background-color: black; /* Set the background color to black */
 }
 
-#stdout {
+#stdout, #stdoutexp, #stdoutscan {
     white-space: pre; /* Preserve line breaks */
     color: white; /* Set text color to white */
     font-size: xx-small;
 }
 
-.notification {
+#stderr, #stderrexp, #stderrscan {
+    white-space: pre; /* Preserve line breaks */
+    color: red; /* Set text color to white */
+    font-size: xx-small;
+}
+
+.notification, .notificationScan, .notificationExploit {
     position: fixed;
     bottom: 10px;
     left: 50%;

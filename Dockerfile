@@ -2,6 +2,8 @@ FROM nikolaik/python-nodejs:python3.9-nodejs18
 
 # Install Git to clone theHarvester repository
 RUN apt-get install -y git
+# Install nmap
+RUN apt-get install -y nmap
 
 ### INSTALL THEHARVESTER ###
 WORKDIR /usr/src/app/theHarvester

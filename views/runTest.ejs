@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>APT-TS - Run Automated PenTest</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1><a href="/" style="text-decoration: none; color: white;">Automated Penetration Testing</a></h1>
+        <button class="osint-button"><a href="/" style="text-decoration: none; color: white;">Home Page</a></button>
+    </div>
+    <h2 style="text-align: center">Running Automated PenTest</h2>
+
+    <div class="run-test-section">
+        <div class="run-test-results">
+
+            <h3 style="text-align: center">Scan</h3>
+            <div class="result-container-scan">
+                <div id="stdoutscan"></div>
+                <div id="stderrscan"></div>
+            </div>
+
+            <h3 style="text-align: center">Exploit</h3>
+            <div class="result-container-exploit">
+                <div id="stdoutexp"></div>
+                <div id="stderrexp"></div>
+            </div>
+        </div>
+
+        <div id="notificationScan" class="notification hidden">Files saved successfully to /resultFilesFolder/scanOutput</div>
+        <div id="notificationExploit" class="notification hidden">EXPLOITATION FINISHED SUCCESSFULLY</div>
+
+    </div>
+    <script>
+        var inputData = <%- JSON.stringify(inputData) %>;
+    </script>
+
+    <script src="js/runTest.js"></script>
+</body>
+</html>

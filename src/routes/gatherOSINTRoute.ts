@@ -1,5 +1,4 @@
 import { spawn } from 'child_process';
-import { Console } from 'console';
 import { Router, Request, Response } from 'express';
 import path = require('path');
 
@@ -23,11 +22,7 @@ let activeSubprocess: {
 
 gatherOSINTRoute.post('/start-osint', (req, res) => {
     // Create a subprocess to run theHarvester
-    const domain = req.body.target;
-
-    if (!isValidDomain(domain)) {
-        throw { error: 'Invalid domain' };
-    }
+    const target = req.body.target;
 
     const resultFilesFolder = path.join(
         __dirname,
@@ -42,11 +37,11 @@ gatherOSINTRoute.post('/start-osint', (req, res) => {
         '-u',
         'theHarvester/theHarvester.py',
         '-d',
-        domain,
+        target,
         '-b',
         'bing',
         '-f',
-        resultFilesFolder + '/' + domain,
+        resultFilesFolder + '/' + target
     ]);
 });
 
@@ -95,21 +90,6 @@ gatherOSINTRoute.get('/start-osint-stream', (req, res) => {
     }
 });
 
-function isValidDomain(domain: string) {
-    const validDomainPattern = /^[a-z0-9.-]+\.[a-z]{2,}$/i;
-    const allowedTLDs = ['com', 'net', 'org', 'gov'];
-
-    const domainParts = domain.split('.');
-
-    if (validDomainPattern.test(domain)) {
-        const tld = domainParts[domainParts.length - 1].toLowerCase();
-
-        if (allowedTLDs.includes(tld)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 export default gatherOSINTRoute;
+
+

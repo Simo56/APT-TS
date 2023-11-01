@@ -3,7 +3,7 @@ import { Express } from "express";
 import bodyParser = require('body-parser');
 
 import homeRouter from "./routes/homeRoute"; // Import your specific route file
-import runScanRoute from "./routes/runScanRoute"; // Import your specific route file
+import runTestRoute from "./routes/runTestRoute"; // Import your specific route file
 import gatherOSINTRoute from "./routes/gatherOSINTRoute"; // Import your specific route file
 
 import path = require("path");
@@ -37,7 +37,7 @@ class App {
         this.server.use("/", homeRouter);
 
         // Add other routes by importing their respective route files
-        this.server.use("/", runScanRoute);
+        this.server.use("/", runTestRoute);
         this.server.use("/", gatherOSINTRoute);
 
     }

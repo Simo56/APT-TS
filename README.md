@@ -65,3 +65,46 @@ This project is licensed under the MIT License.
 ## Contact
 
 For questions or feedback, feel free to contact us at tosatto.simonepio@gmail.com.
+
+```
+APT-TS
+├─ .editorconfig
+├─ .eslintignore
+├─ .eslintrc.json
+├─ .gitattributes
+├─ .gitignore
+├─ .prettierrc.js
+├─ config
+├─ Dockerfile
+├─ LICENSE
+├─ nodemon.json
+├─ package.json
+├─ public
+│  ├─ css
+│  │  └─ styles.css
+│  ├─ images
+│  │  ├─ defaultexploitoption.png
+│  │  ├─ defaultscanoption.png
+│  │  ├─ favicon.ico
+│  │  ├─ metasploit.png
+│  │  ├─ nmap.png
+│  │  └─ openvas.png
+│  └─ js
+│     ├─ osint.js
+│     └─ runTest.js
+├─ README.md
+├─ resultFilesFolder
+├─ src
+│  ├─ app.ts
+│  ├─ index.ts
+│  └─ routes
+│     ├─ gatherOSINTRoute.ts
+│     ├─ homeRoute.ts
+│     └─ runTestRoute.ts
+├─ tsconfig.json
+└─ views
+   ├─ home.ejs
+   ├─ osint.ejs
+   └─ runTest.ejs
+
+```
