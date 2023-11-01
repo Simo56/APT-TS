@@ -1,52 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <title>APT-TS - OSINT Gathering</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="header">
-        <h1>Automated Penetration Testing</h1>
-        <button class="osint-button" onclick="window.location.href = '/osint';">Gather OSINT</button>
+        <h1><a href="/" style="text-decoration: none; color: white;">Automated Penetration Testing</a></h1>
+        <button class="osint-button">Gather OSINT</button>
     </div>
-    <h2 style="text-align: center;">Open Source Intelligence Gathering</h2>
+    <h2 style="text-align: center">Open Source Intelligence Gathering</h2>
+
     <div class="osint-section">
-        <form action="/osint-gather" method="POST">
+        <form name="osint-form" method="POST">
             <div class="domain-section">
                 <label for="target">Enter IP Address or Domain:</label>
-                <input type="text" id="target" name="target" required>
+                <input type="text" id="target" name="target" required />
             </div>
 
-            <!-- Add more fields for OSINT parameters as needed -->
-
-            <input type="submit" value="Start OSINT Gathering">
+            <input type="submit" class="osint-start-button" value="Start OSINT Gathering" />
         </form>
 
-        <div class="osint-results" >
-            <h3 style="text-align: center;">OSINT Results</h3>
-            <div id="osint-data"></div>
+        <div class="osint-results">
+            <h3 style="text-align: center">OSINT Results</h3>
+            <div class="result-container">
+                <div id="stdout"></div>
+                <div id="stderr"></div>
+            </div>
+            
         </div>
+        <div id="notification" class="notification hidden">Files saved successfully to /resultFilesFolder/OSINT</div>
+
     </div>
 
-    <script>
-        // Handle the form submission and update OSINT results
-        $("form").submit(function (e) {
-            e.preventDefault(); // Prevent the form from submitting normally
-    
-            $.ajax({
-                type: "POST",
-                url: "/osint-gather", // Update with your OSINT endpoint
-                data: { target: $("#target").val() }, // Pass the target as data
-                success: function (osintResults) {
-                    // Display the OSINT data in the results section
-                    $("#osint-data").html(JSON.stringify(osintResults));
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        });
-    </script>
+    <script src="js/osint.js"></script>
 </body>
 </html>

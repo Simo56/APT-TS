@@ -9,6 +9,7 @@ dotenv.config();
 const serverPort = process.env.SERVER_PORT;
 
 const viewsPath = path.resolve(__dirname, "../views");
+
 App.set("views", viewsPath);
 App.set("view engine", "ejs");
 

@@ -1,5 +1,6 @@
 import express = require("express");
 import { Express } from "express";
+import bodyParser = require('body-parser');
 
 import homeRouter from "./routes/homeRoute"; // Import your specific route file
 import runScanRoute from "./routes/runScanRoute"; // Import your specific route file
@@ -25,6 +26,10 @@ class App {
 
     middlewares() {
         this.server.use(express.json());
+
+        // Configure bodyParser middleware
+        this.server.use(bodyParser.urlencoded({ extended: false }));
+        this.server.use(bodyParser.json());
     }
 
     routes() {

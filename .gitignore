@@ -34,3 +34,10 @@ dist/
 config/*.json
 config/*.js
 config/*.ts
+
+# Ignore resultFilesFolder
+resultFilesFolder/OSINT/*
+resultFilesFolder/scanOutput/*
+
+# Ignore theHarvester
+/theHarvester

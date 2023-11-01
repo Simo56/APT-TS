@@ -1,4 +1,5 @@
 # Automated Penetration Testing Suite
+
 <h1 align="center">
   <br>
   <img width="512" alt="APT-TS Logo" src="https://github.com/Simo56/APT-TS/assets/20564263/34d791e3-ab23-4fdd-a4e1-9751de34ba2d">
@@ -40,11 +41,13 @@ Clone the repository:
 ```bash
 git clone https://github.com/Simo56/APT-TS
 cd APT-TS
-Build and run the Docker container:
+
 ```
 
+Build and run the Docker container:
+
 ```bash
-docker-compose up -d
+docker build --pull --rm -f "Dockerfile" -t apt-ts:latest "."
 ```
 
 Access the web interface in your browser:
