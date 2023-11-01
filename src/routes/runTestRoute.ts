@@ -99,27 +99,21 @@ runTestRoute.get('/start-scan-stream', (req, res) => {
 export default runTestRoute;
 
 function scanNmap(target: string) {
-    // Convert Windows path to WSL path
-    const windowsPath = path.join(
-        __dirname,
-        '..',
-        '..',
+    const filePath = path.join(
+        process.cwd(),
         'resultFilesFolder',
         'scanOutput',
         target + '.xml'
     );
 
-    const wslPath = windowsPath.replace(/\\/g, '/').replace(/^(\w):/, '/mnt/$1').toLowerCase();
-
     // Set up event listeners for the subprocess
-    scanSubprocess = spawn('wsl', [
-        'nmap',
+    scanSubprocess = spawn('nmap', [
         '--script',
-        'vulners,vulscan',
+        'vulners,vulscan/vulscan',
         '-sV',
         target,
         '-oX',
-        wslPath,
+        filePath,
         '-v',
         '--stats-every',
         '5s'

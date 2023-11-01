@@ -25,9 +25,7 @@ gatherOSINTRoute.post('/start-osint', (req, res) => {
     const target = req.body.target;
 
     const resultFilesFolder = path.join(
-        __dirname,
-        '..',
-        '..',
+        process.cwd(),
         'resultFilesFolder',
         'OSINT'
     );

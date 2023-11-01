@@ -54,6 +54,8 @@ Access the web interface in your browser:
 
 http://localhost:port (replace 'port' with the configured port)
 
+the output files can be found at this path inside the docker container: /usr/src/app/resultFilesFolder
+
 ## Contributing
 
 We welcome contributions! If you'd like to contribute to the project, please read our Contribution Guidelines.
@@ -101,6 +103,7 @@ APT-TS
 │     ├─ gatherOSINTRoute.ts
 │     ├─ homeRoute.ts
 │     └─ runTestRoute.ts
+├─ tosattofruitcaorle.com
 ├─ tsconfig.json
 └─ views
    ├─ home.ejs

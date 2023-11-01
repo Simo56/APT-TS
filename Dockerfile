@@ -1,9 +1,16 @@
 FROM nikolaik/python-nodejs:python3.9-nodejs18
 
+RUN apt-get update
 # Install Git to clone theHarvester repository
 RUN apt-get install -y git
-# Install nmap
+# Install nmap and add the vuln scripts
 RUN apt-get install -y nmap
+WORKDIR /usr/share/nmap/script
+RUN git clone https://github.com/scipag/vulscan vulscan
+RUN ln -s `pwd`/vulscan /usr/share/nmap/scripts/vulscan
+RUN git clone https://github.com/vulnersCom/nmap-vulners.git /usr/share/nmap/nmap-vulners
+RUN cp /usr/share/nmap/nmap-vulners/vulners.nse /usr/share/nmap/scripts/
+RUN nmap --script-updatedb
 
 ### INSTALL THEHARVESTER ###
 WORKDIR /usr/src/app/theHarvester
