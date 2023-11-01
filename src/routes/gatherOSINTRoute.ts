@@ -91,7 +91,7 @@ gatherOSINTRoute.get('/start-osint-stream', (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: 'Something went wrong' });
+        res.status(500).json({ error: 'Something went wrong!' });
     }
 });
 
