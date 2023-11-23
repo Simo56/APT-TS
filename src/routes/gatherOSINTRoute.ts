@@ -24,6 +24,11 @@ gatherOSINTRoute.post('/start-osint', (req, res) => {
     // Create a subprocess to run theHarvester
     const target = req.body.target;
 
+    // Use a regular expression to sanitize the 'target' input
+    if (!/^[a-zA-Z0-9_.-]+$/.test(target)) {
+        return res.status(400).send("Invalid 'target' input.");
+    }
+
     const resultFilesFolder = path.join(
         process.cwd(),
         'resultFilesFolder',
@@ -36,11 +41,15 @@ gatherOSINTRoute.post('/start-osint', (req, res) => {
         'theHarvester/theHarvester.py',
         '-d',
         target,
+        '-l',
+        '500',
         '-b',
         'bing',
         '-f',
         resultFilesFolder + '/' + target
     ]);
+
+    return;
 });
 
 const delimiter = '\n'; // Define your message delimiter

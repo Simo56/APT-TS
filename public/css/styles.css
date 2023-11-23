@@ -102,8 +102,8 @@ form input, form button {
     margin: 10px auto;
 }
 
-.result-container, .result-container-scan, .result-container-exploit{
-    height: 200px; /* Set the desired height for the scrollable area */
+.result-container, .result-container-scan{
+    height: 400px; /* Set the desired height for the scrollable area */
     width: 80%; /* Set the width to 80% and center the container */
     margin: 0 auto; /* Center the container horizontally */
     overflow-y: scroll; /* Enable vertical scrolling */
@@ -115,18 +115,18 @@ form input, form button {
 #stdout, #stdoutexp, #stdoutscan {
     white-space: pre; /* Preserve line breaks */
     color: white; /* Set text color to white */
-    font-size: xx-small;
+    font-size: small;
 }
 
 #stderr, #stderrexp, #stderrscan {
     white-space: pre; /* Preserve line breaks */
     color: red; /* Set text color to white */
-    font-size: xx-small;
+    font-size: small;
 }
 
 .notification, .notificationScan, .notificationExploit {
-    position: fixed;
-    bottom: 10px;
+    position: relative;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #4CAF50;
@@ -137,7 +137,9 @@ form input, form button {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
     z-index: 1;
+    margin-bottom: 10px; /* Adjust as needed to add space between notifications */
 }
+
 
 .notification.hidden {
     opacity: 0;

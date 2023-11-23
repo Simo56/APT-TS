@@ -16,16 +16,17 @@
     <div class="run-test-section">
         <div class="run-test-results">
 
-            <h3 style="text-align: center">Scan</h3>
+            <h3 style="text-align: center">Scan <span id="scanIcon" style="color: green; display: none;">&#10004;</span></h3>
             <div class="result-container-scan">
                 <div id="stdoutscan"></div>
                 <div id="stderrscan"></div>
             </div>
 
-            <h3 style="text-align: center">Exploit</h3>
-            <div class="result-container-exploit">
-                <div id="stdoutexp"></div>
-                <div id="stderrexp"></div>
+            <h3 style="text-align: center">Exploit <span id="expIcon" style="color: green; display: none;">&#10004;</span></h3>
+            <div class="result-container-exploit" style="text-align: center">
+                <label for="vulnerabilities">Select Scanned Vulnerable Service:</label>
+                <select id="vulnerabilities"></select>
+                <button id="runCommandBtn">Run Command</button>
             </div>
         </div>
 

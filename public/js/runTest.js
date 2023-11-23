@@ -21,36 +21,24 @@ $(document).ready(function () {
     }, 4000); // Hide after 4 seconds
   }
 
-  
   const stdoutscanSection = $('#stdoutscan');
   const stderrscanSection = $('#stderrscan');
 
-  const stdoutexpSection = $('#stdoutexp');
-  const stderrexpSection = $('#stderrexp');
-
   // Select the stdout div
   var stdScanDiv = $('.result-container-scan');
-  var stdExpDiv = $('.result-container-exploit');
 
   // Function to scroll to the bottom of the stdout div
   function scrollToBottomScan() {
     stdScanDiv.scrollTop(stdScanDiv[0].scrollHeight);
   }
-  function scrollToBottomExploit() {
-    stdExpDiv.scrollTop(stdExpDiv[0].scrollHeight);
-  }
-
-  //test output
-  console.log(inputData);
   
+
   // Start the scan process as the first task
   $.ajax({
     type: 'POST',
     url: '/start-scan',
     data: inputData,
-    success: function () {
-      
-    },
+    success: function () {},
     error: function (error) {
       console.log(error);
     },
@@ -63,7 +51,7 @@ $(document).ready(function () {
     const output = event.data;
 
     if (output.startsWith('stdout:')) {
-    stdoutscanSection.append(
+      stdoutscanSection.append(
         '<pre>' + output.replace('stdout:', '') + '\n' + '<pre>'
       );
       scrollToBottomScan(); // Scroll to the bottom
@@ -74,6 +62,8 @@ $(document).ready(function () {
       scrollToBottomScan(); // Scroll to the bottom
     } else if (output.startsWith('exit:')) {
       showNotificationScan();
+      $('#scanIcon').toggle();
+      startExploitation();
       sourceScan.close();
     }
   };
@@ -82,4 +72,50 @@ $(document).ready(function () {
   sourceScan.onerror = function (error) {
     sourceScan.close();
   };
+
+  // Function to continue with the exploitation
+  function startExploitation() {
+    $.ajax({
+      type: 'POST',
+      url: '/start-exploitation',
+      data: inputData,
+      success: function (response) {
+        console.log('success function start exploitation AJAX');
+        // Assuming vulnerabilities is an array in the response
+        var vulnerabilities = response.CVEArray.vulnerabilities;
+
+        // Update the dropdown or any other part of your UI with the received data
+        updateUIWithVulnerabilities(vulnerabilities);
+
+        showNotificationExploit();
+        $('#expIcon').toggle();
+
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+
+  }
+
+  function updateUIWithVulnerabilities(vulnerabilities) {
+    // Assuming you have a function to update the UI with vulnerabilities
+    // For example, update the dropdown options
+    var select = $('#vulnerabilities');
+    select.empty(); // Clear existing options
+
+    console.log(vulnerabilities);
+    console.log("TIPO DATO VULNERABILITIES:" + typeof(vulnerabilities));
+    for (const key in vulnerabilities) {
+      if (vulnerabilities.hasOwnProperty(key)) {
+        const value = vulnerabilities[key];
+        console.log(`${key}: ${value}`);
+        var option = $('<option>', {
+          value: key,
+          text: key,
+        });
+        select.append(option);
+      }
+    }
+  }
 });
