@@ -4,8 +4,12 @@ RUN apt-get update
 # Install Git to clone theHarvester repository
 RUN apt-get install -y git
 # Install snapd and the metasploit-framework
-RUN apt-get install snapd
-RUN apt-get install metasploit-framework
+RUN apt-get install snapd -y
+
+RUN apt-get install -y gnupg2
+RUN curl -o metasploit_installer.sh https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
+RUN chmod +x metasploit_installer.sh
+RUN ./metasploit_installer.sh
 # Install nmap and add the vuln scripts
 RUN apt-get install -y nmap
 

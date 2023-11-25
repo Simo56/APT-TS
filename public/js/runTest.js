@@ -31,7 +31,6 @@ $(document).ready(function () {
   function scrollToBottomScan() {
     stdScanDiv.scrollTop(stdScanDiv[0].scrollHeight);
   }
-  
 
   // Start the scan process as the first task
   $.ajax({
@@ -73,6 +72,7 @@ $(document).ready(function () {
     sourceScan.close();
   };
 
+  var vulnerabilities;
   // Function to continue with the exploitation
   function startExploitation() {
     $.ajax({
@@ -82,20 +82,38 @@ $(document).ready(function () {
       success: function (response) {
         console.log('success function start exploitation AJAX');
         // Assuming vulnerabilities is an array in the response
-        var vulnerabilities = response.CVEArray.vulnerabilities;
+        vulnerabilities = response.CVEArray.vulnerabilities;
 
         // Update the dropdown or any other part of your UI with the received data
         updateUIWithVulnerabilities(vulnerabilities);
 
         showNotificationExploit();
         $('#expIcon').toggle();
-
       },
       error: function (error) {
         console.log(error);
       },
     });
+  }
 
+  // Handle "Run Command" button click
+  $('#runCommandBtn').on('click', function () {
+    // Get the selected value from the dropdown
+    var selectedValue = $('#vulnerabilities').val();
+    var commandString;
+    for (const key in vulnerabilities) {
+      if (vulnerabilities.hasOwnProperty(key) && key == selectedValue) {
+        commandString = vulnerabilities[key];
+      }
+    }
+    // Display the selected value in a text box or another HTML element
+    displaySelectedValue(commandString);
+  });
+
+  // Function to display the selected value
+  function displaySelectedValue(value) {
+    // Update this part based on how you want to display the selected value
+    $('#selectedValueDisplay').text('Run This Command: ' + value);
   }
 
   function updateUIWithVulnerabilities(vulnerabilities) {
@@ -105,7 +123,7 @@ $(document).ready(function () {
     select.empty(); // Clear existing options
 
     console.log(vulnerabilities);
-    console.log("TIPO DATO VULNERABILITIES:" + typeof(vulnerabilities));
+    console.log('TIPO DATO VULNERABILITIES:' + typeof vulnerabilities);
     for (const key in vulnerabilities) {
       if (vulnerabilities.hasOwnProperty(key)) {
         const value = vulnerabilities[key];

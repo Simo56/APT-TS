@@ -157,7 +157,7 @@ async function exploitMetasploit() {
     listPossibleVulnerableServices.forEach(service => {
         const serviceName = `${service.serviceName} ${service.serviceVersion || ''}`;
         const searchCommand = `search name:'${serviceName}'`;
-        const fullCommand = `msfconsole -q -x "${searchCommand}" && exit`;
+        const fullCommand = `msfconsole -q -x "${searchCommand}"`;
 
         metasploitCVEArray[serviceName] = fullCommand;
     });
