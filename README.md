@@ -69,10 +69,9 @@ This project is licensed under the MIT License.
 For questions or feedback, feel free to contact us at tosatto.simonepio@gmail.com.
 
 ```
+
 APT-TS
-├─ .editorconfig
-├─ .eslintignore
-├─ .eslintrc.json
+├─ .git
 ├─ .gitattributes
 ├─ .gitignore
 ├─ .prettierrc.js
@@ -99,10 +98,12 @@ APT-TS
 ├─ src
 │  ├─ app.ts
 │  ├─ index.ts
-│  └─ routes
-│     ├─ gatherOSINTRoute.ts
-│     ├─ homeRoute.ts
-│     └─ runTestRoute.ts
+│  ├─ routes
+│  │  ├─ gatherOSINTRoute.ts
+│  │  ├─ homeRoute.ts
+│  │  └─ runTestRoute.ts
+│  └─ utils
+│     └─ extractCVEsFromXML.ts
 ├─ tosattofruitcaorle.com
 ├─ tsconfig.json
 └─ views
