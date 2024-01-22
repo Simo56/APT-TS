@@ -48,11 +48,12 @@ Build and run the Docker container:
 
 ```bash
 docker build --pull --rm -f "Dockerfile" -t apt-ts:latest "."
+sudo docker run -it -p 8080:8080 apt-ts:latest
 ```
 
 Access the web interface in your browser:
 
-http://localhost:port (replace 'port' with the configured port)
+http://localhost:port (replace 'port' with the configured port)[Default is 8080]
 
 the output files can be found at this path inside the docker container: /usr/src/app/resultFilesFolder
 

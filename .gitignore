@@ -27,9 +27,6 @@ Thumbs.db
 dist/
 .cache/
 
-# Ignore environment-specific files
-.env
-
 # Ignore configuration files that may contain sensitive data
 config/*.json
 config/*.js

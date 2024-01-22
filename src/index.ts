@@ -1,7 +1,6 @@
 import path = require('path');
 import App from './app';
 import * as dotenv from 'dotenv';
-import { AppConfig } from '../config/configApp';
 
 // Load environment variables from .env file
 dotenv.config();
