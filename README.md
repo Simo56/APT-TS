@@ -48,7 +48,9 @@ Build and run the Docker container:
 
 ```bash
 docker build --pull --rm -f "Dockerfile" -t apt-ts:latest "."
-sudo docker run -it -p 8080:8080 apt-ts:latest
+sudo docker run --name apt-ts-container -it -p 8080:8080 apt-ts:latest
+# to get an interactive shell inside the container
+sudo docker exec -it apt-ts-container bash
 ```
 
 Access the web interface in your browser:
@@ -57,6 +59,19 @@ http://localhost:port (replace 'port' with the configured port)[Default is 8080]
 
 the output files can be found at this path inside the docker container: /usr/src/app/resultFilesFolder
 
+## To Develop
+(Install theHarvester inside the root folder)
+(Install metasploit)
+Install requirements:
+
+```bash
+sudo npm install nodejs
+sudo npm install npm
+sudo npm install -g typescript
+sudo npm install -g nodemon
+cd ./src
+npm run dev
+```
 ## Contributing
 
 We welcome contributions! If you'd like to contribute to the project, please read our Contribution Guidelines.
