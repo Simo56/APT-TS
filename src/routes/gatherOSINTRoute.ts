@@ -44,7 +44,7 @@ gatherOSINTRoute.post('/start-osint', (req, res) => {
         '-l',
         '500',
         '-b',
-        'bing',
+        'dnsdumpster,duckduckgo,rapiddns,yahoo',
         '-f',
         resultFilesFolder + '/' + target
     ]);
