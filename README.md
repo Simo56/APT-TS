@@ -60,7 +60,8 @@ http://localhost:port (replace 'port' with the configured port)[Default is 8080]
 the output files can be found at this path inside the docker container: /usr/src/app/resultFilesFolder
 
 ## To Develop
-
+(Install theHarvester inside the root folder)
+(Install metasploit)
 Install requirements:
 
 ```bash
