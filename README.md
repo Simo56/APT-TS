@@ -48,7 +48,7 @@ Build and run the Docker container:
 
 ```bash
 docker build --pull --rm -f "Dockerfile" -t apt-ts:latest "."
-sudo docker run -it -p 8080:8080 apt-ts:latest
+sudo docker run -it -p 8080:8080 apt-ts:latest bash
 ```
 
 Access the web interface in your browser:
