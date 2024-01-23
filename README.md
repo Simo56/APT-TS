@@ -59,6 +59,17 @@ http://localhost:port (replace 'port' with the configured port)[Default is 8080]
 
 the output files can be found at this path inside the docker container: /usr/src/app/resultFilesFolder
 
+## To Develop
+
+Install requirements:
+
+```bash
+sudo npm install nodejs
+sudo npm install npm
+sudo npm install -g typescript
+sudo npm install -g nodemon
+
+```
 ## Contributing
 
 We welcome contributions! If you'd like to contribute to the project, please read our Contribution Guidelines.
