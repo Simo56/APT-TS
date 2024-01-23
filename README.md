@@ -68,7 +68,8 @@ sudo npm install nodejs
 sudo npm install npm
 sudo npm install -g typescript
 sudo npm install -g nodemon
-
+cd ./src
+npm run dev
 ```
 ## Contributing
 
