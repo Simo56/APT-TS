@@ -33,8 +33,8 @@ config/*.js
 config/*.ts
 
 # Ignore resultFilesFolder
-resultFilesFolder/OSINT/*.*
-resultFilesFolder/scanOutput/*.*
+resultFilesFolder/OSINT/*.xml
+resultFilesFolder/scanOutput/*.xml
 
 # Ignore theHarvester
 /theHarvester
